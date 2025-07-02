@@ -57,7 +57,7 @@ def export_properties(
         ]
 
     """
-    props = analysis_section.section_props.as_dict()
+    props = analysis_section.section_props.asdict()
 
     # These are arrays of intermediate values and are not 
     # intended to be outputs.
@@ -84,11 +84,11 @@ def envelope_stress_results(stress_post: "sectionproperties.post.stress_post.Str
     stress_envelopes = {}
     for stress_dir_name, stress_array in stress_results.items():
         trimmed_stress_name = stress_dir_name.replace("sig_", "")
+        stress_envelopes.setdefault(trimmed_stress_name, {})
         max_stress = np.max(stress_array)
         min_stress = np.min(stress_array)
         absmax_stress = np.max(np.abs(stress_array))
-        stress_envelopes.update({"max": max_stress})
-        stress_envelopes.update({"min": min_stress})
-        stress_envelopes.update({"absmax": absmax_stress})
+        stress_envelopes[trimmed_stress_name].update({"max": max_stress})
+        stress_envelopes[trimmed_stress_name].update({"min": min_stress})
+        stress_envelopes[trimmed_stress_name].update({"absmax": absmax_stress})
     return stress_envelopes
-    
