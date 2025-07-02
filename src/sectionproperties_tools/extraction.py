@@ -1,9 +1,11 @@
 from __future__ import annotations
 import numpy as np
 from typing import Optional
+from sectionproperties.analysis.section import Section
+from sectionproperties.post.stress_post import StressPost
 
-def export_properties(
-    analysis_section: "sectionproperties.section.Section",
+def extract_properties(
+    analysis_section: Section,
     subset_to_extract: Optional[str] = None,
 ) -> dict[str, float]:
     """
@@ -75,7 +77,7 @@ def export_properties(
         return props
     
 
-def envelope_stress_results(stress_post: "sectionproperties.post.stress_post.StressPost") -> dict[str, dict]:
+def envelope_stress_results(stress_post: StressPost) -> dict[str, dict]:
     """
     Returns the envelope (min/max/absmax) of the stress results.
     """

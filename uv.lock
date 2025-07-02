@@ -447,19 +447,6 @@ wheels = [
 ]
 
 [[package]]
-name = "numpydantic"
-version = "1.6.9"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "numpy" },
-    { name = "pydantic" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/c1/af/5e4ecfdfbb35b9119f42d12466970f24c02e93577c4b1d5d230b5b7cabdf/numpydantic-1.6.9.tar.gz", hash = "sha256:bb2c563e76894abffb06cf0e991d6cb0aa42e2b39d40426ebb0699011d18ec0d", size = 77899 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/56/2a/46f1e3059b3bd899ab1335ae3a42f7cbff9a5a9ae9294cb1d7a3eb04a9ce/numpydantic-1.6.9-py3-none-any.whl", hash = "sha256:149ed4b7dfec907fb1e7c0874fd7d41bc95734c22764124d22c7c27aa8f059fd", size = 85598 },
-]
-
-[[package]]
 name = "packaging"
 version = "25.0"
 source = { registry = "https://pypi.org/simple" }
@@ -761,11 +748,10 @@ wheels = [
 ]
 
 [[package]]
-name = "sectionproperties-reporting"
+name = "sectionproperties-tools"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "numpydantic" },
     { name = "pydantic" },
     { name = "sectionproperties" },
 ]
@@ -774,12 +760,10 @@ dependencies = [
 dev = [
     { name = "ipykernel" },
     { name = "ipython" },
-    { name = "sectionproperties" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "numpydantic", specifier = ">=1.6.9" },
     { name = "pydantic", specifier = ">=2.11.7" },
     { name = "sectionproperties", specifier = ">=3.9.0" },
 ]
@@ -788,7 +772,6 @@ requires-dist = [
 dev = [
     { name = "ipykernel", specifier = ">=6.29.5" },
     { name = "ipython", specifier = ">=9.3.0" },
-    { name = "sectionproperties", specifier = ">=3.9.0" },
 ]
 
 [[package]]
