@@ -221,6 +221,7 @@ class CompoundGeometrySchema(GeometrySchema):
         init_dict = self.to_init_dict()
         if "geoms" in init_dict:
             init_dict.update({"geoms": geom})
+        # if "geom" in init_dict:
         new_inst = sec_prop_class(**init_dict)
 
         for attr_name, attr_value in self:
@@ -231,6 +232,7 @@ class CompoundGeometrySchema(GeometrySchema):
                 attr_value['triangles'] = np.array(attr_value['triangles'])
                 attr_value['triangle_attributes'] = np.array(attr_value['triangle_attributes'])
             setattr(new_inst, attr_name, attr_value)
+        new_inst.geom = geom
         return new_inst
 
 
