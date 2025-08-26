@@ -6,19 +6,17 @@ from sectionproperties.post.stress_post import StressPost
 
 def extract_properties(
     analysis_section: Section,
-    subset_to_extract: Optional[str] = None,
+    subset_to_extract: Optional[list[str]] = None,
 ) -> dict[str, float]:
     """
     Extracts the properties from the solved 'analysis_section'.
 
     'analysis_section': a solved Section from sectionproperties.
-    'subset_to_extract': One of {"geometric", "warping", "plastic"}
-        The results extracted will be from one of these sets
-        of properties. If None, then all results will be extracted.
-    'properties_to_extract': If provided, will extract only the 
-        properties from the provided list. If None, will extract
-        all sectionproperties.
-
+    'subset_to_extract': A list of properties to extract from
+        the analysis_section. The names of properties in the
+        solved section will depend on whether or not a non-
+        default material was assigned.
+        If None, then all results will be extracted.
 
         The following properties can be specified when materials
         are _not_ added to the section (i.e. a geometric analysis):
